@@ -9,11 +9,19 @@ class BoardsController < ApplicationController
     @board=Board.new
     # binding.pry
   end
+
   def create
-    board=Board.create(board_params)
-    # 下記はredirect_to board_path(@board.id)と同じ
-    redirect_to board
-    # binding.pry
+    board = Board.new(board_params)
+    if board.save
+      flash[:notice] = "「#{board.title}」の掲示板を作成しました"
+      # 下記はredirect_to board_path(@board.id)と同じ
+      redirect_to board
+    else
+      redirect_to :back, flash: {
+        board: board,
+        error_messages: board.errors.full_messages
+      }
+    end
   end
 
   def show
@@ -26,16 +34,17 @@ class BoardsController < ApplicationController
 
   def update
     # board = Board.find(params[:id])
-    board.update(board_params)
+    # 多分 before_actionで揃えるために＠つけた
+    @board.update(@board_params)
     redirect_to board
   end
 
   def destroy
   #   board = Board.find(params[:id])
-    board.delete
+    @board.delete
 
     # 一覧画面へ
-    redirect_to boatds_path
+    redirect_to boards_path, flash: { notice: "「#{@board.title}」の掲示板が削除されました" }
   end
 
   private
