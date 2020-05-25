@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # 追記（Bootstrap)
 gem 'bootstrap', '~> 4.0.0'
 gem 'mini_racer'
+# 追記
+gem "kaminari"
 
 
 group :development, :test do
