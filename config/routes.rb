@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # post 'boards',to:"boards#create"
   # get 'boards/:id',to:"boards#show"
 
-  resources :boards, only: [:index, :new, :show, :create, :edit, :update]
+  resources :boards
 end

@@ -7,8 +7,10 @@ class BoardsController < ApplicationController
     # binding.pry
   end
   def create
-    Board.create(board_params)
-    binding.pry
+    board=Board.create(board_params)
+    # 下記はredirect_to board_path(@board.id)と同じ
+    redirect_to board
+    # binding.pry
   end
 
   def show
@@ -23,7 +25,14 @@ class BoardsController < ApplicationController
     board = Board.find(params[:id])
     board.update(board_params)
     redirect_to board
+  end
 
+  def destroy
+    board = Board.find(params[:id])
+    board.delete
+
+    # 一覧画面へ
+    redirect_to boatds_path
   end
 
   private
