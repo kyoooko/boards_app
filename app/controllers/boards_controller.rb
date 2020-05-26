@@ -37,8 +37,17 @@ class BoardsController < ApplicationController
   def update
     # board = Board.find(params[:id])
     # 多分 before_actionで揃えるために＠つけた
-    @board.update(@board_params)
-    redirect_to board
+
+   if @board.update(board_params)
+      flash[:notice] = "#{@board.title}」の掲示板を編集しました"
+      # 下記はredirect_to board_path(@board.id)と同じ
+      redirect_to @board
+    else
+      redirect_to :back, flash: {
+        board: @board,
+        error_messages: @board.errors.full_messages
+      }
+    end
   end
 
   def destroy
