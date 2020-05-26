@@ -36,6 +36,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'mini_racer'
 # 追記
 gem "kaminari"
+# 追記(flash日本語)
 gem "rails-i18n"
 
 
@@ -51,7 +52,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # 追記(デバッグ)
   gem "pry-byebug"
+  # 追記(モデル)
+  gem "annotate"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
