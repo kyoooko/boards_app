@@ -26,7 +26,8 @@ class BoardsController < ApplicationController
 
   def show
     # @board = Board.find(params[:id])
-    @comment = @board.comments.new
+    # @comment = @board.comments.new
+    @comment = Comment.new(board_id:@board.id)
   end
 
   def edit

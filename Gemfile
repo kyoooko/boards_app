@@ -43,6 +43,8 @@ gem "rails-i18n"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # 追記（pry-byebugで止めた際にリクエストパラメーターを見やすく表示等）
+  gem "rails-flog",require: "flog"
 end
 
 group :development do
