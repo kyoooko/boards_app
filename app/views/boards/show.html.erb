@@ -13,3 +13,4 @@
  <%#= render partial: "board", object: @board %> 
  <%# 上記を下記のようにもかける %>
 <%= render @board %>
+<%= render  partial: "comment_form", locals:{comment: @comment} %>
