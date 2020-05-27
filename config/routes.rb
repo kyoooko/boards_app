@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # get 'users/new'
+
+  # get 'users/create'
+
+  # get 'users/me'
+
   get 'mypage', to: "users#me"
   post "login", to: 'sessions#create'
   delete "logout", to: 'sessions#destroy'
@@ -11,7 +17,8 @@ Rails.application.routes.draw do
   # post 'boards',to:"boards#create"
   # get 'boards/:id',to:"boards#show"
 
-  root "boards#index"
+  # root "boards#index"
+  root 'home#index'
   resources :users,only: %i[new create]
   resources :boards
   resources :comments,only: %i[create destroy]
