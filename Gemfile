@@ -45,6 +45,11 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # 追記（pry-byebugで止めた際にリクエストパラメーターを見やすく表示等）
   gem "rails-flog",require: "flog"
+  # 追記(RSpec)
+  gem 'rspec-rails', '~> 4.0.0'
+  # 追記(RSpec コントローラー)
+  # gem 'rails-controller-testing'
+
 end
 
 group :development do
