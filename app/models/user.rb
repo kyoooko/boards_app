@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
+#  birthday        :date
 #  name            :string(255)      not null
 #  password_digest :string(255)      not null
 #  created_at      :datetime         not null
@@ -25,4 +26,15 @@ class User < ApplicationRecord
     }
   validates :password,
     length: { minimum: 8 }
+
+    # テスト駆動開発（間違ったメソッド定義）
+    # def age
+    #   0
+    # end
+    
+    # テスト駆動開発（正しいメソッド定義）
+    def age
+      now=Time.zone.now
+      (now.strftime("%Y%m%d").to_i - birthday.strftime("%Y%m%d").to_i) / 10000
+    end
 end
